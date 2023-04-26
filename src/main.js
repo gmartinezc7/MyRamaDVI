@@ -1,5 +1,4 @@
 import Phaser from 'phaser'
-//import HelloWorldScene from './HelloWorldScene'
 import titulo from './titulo.js'
 import game from './game.js'
 import menuniveles from './menuniveles.js'
@@ -11,6 +10,22 @@ const config = {
 	parent: 'phaser-game',
 	width: 720,
 	height: 720,
+	pixelArt: true,
+	scale: {
+		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
+		// Configuramos phaser para que se adapte al tamaño de pantalla donde ejecutadmos
+		// con un mínimo y un máximo de tamaño
+		mode: Phaser.Scale.FIT,
+		min: {
+            width: 188,
+            height: 328
+        },
+		max: {
+            width: 752,
+            height: 1312
+        },
+		zoom: 1
+    },
 	physics: {
 		default: 'arcade',
 		arcade: {
@@ -21,4 +36,4 @@ const config = {
 	scene: [titulo, tienda, menuniveles, game, escenaFinal],
 }
 
-export default new Phaser.Game(config)
+export default new Phaser.Game(config);
