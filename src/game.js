@@ -33,6 +33,7 @@ export default class game extends Phaser.Scene {
         this.load.image('patronesTilemap', 'assets/Tilemap/mapa_continuo_lvl1.png');
         this.load.image('character', 'assets/Skins/mascleto.png');
         this.load.image('plataformax','assets/plataforma1.png');
+        this.load.image('estrellaluz','assets/estrellaluz.png');
 	}
 	
 	/**
@@ -64,38 +65,60 @@ export default class game extends Phaser.Scene {
 
         //Se crea el personaje con sus propiedades
         this.mov = this.map.createFromObjects('Objetos', {name: 'player', classType: Character, key:this.selectedCharacter.image});
-		let player = this.mov[0];
-        player.setScale(0.2);
+		this.player = this.mov[0];
+        //this.player.body.position.x;
+        this.player.setScale(0.2);
 
+        //this.physics.world.enable(this.player);
 
-        // Creación de plataformas
-
-        this.platforms = this.map.createFromObjects('Plataformas', {name: 'Plataforma', key: 'plataformax'});
-        let plataformas = this.platforms[0];
-
-
-
-
-        /*let platforms = this.map.createFromObjects('Plataformas', {name: "Plataforma", key: 'plataformax' });
+        // Creamos los objetos a través de la capa de objetos del tilemap y la imagen o la clase que queramos
+		let plataformas = this.map.createFromObjects('Plataformas', {name: "Plataforma", key: 'plataformax' });
 		
-		let platformGroup = this.add.group();
-		platformGroup.addMultiple(platforms)
-		platforms.forEach(obj => {
+		this.platGroup = this.add.group();
+		this.platGroup.addMultiple(plataformas)
+		plataformas.forEach(obj => {
 			this.physics.add.existing(obj);
-            this.physics.world.gravity.set(0);
-            this.physics.add.collider(player, obj, (player, obj) => {
-                this.mov[0].body.setVelocityY(-500);
-            });
-		});*/
+            obj.body.allowGravity = false;      
+            obj.body.immovable = true;   
+		});
+
+        this.physics.add.collider(this.player, this.platGroup, this.handlePlayerOnPlatform, null, this);
+
+        this.platGroup.children.iterate(function (plataforma){
+            plataforma.body.checkCollision.up = true;
+            plataforma.body.checkCollision.left = false;
+            plataforma.body.checkCollision.right = false;
+            plataforma.body.checkCollision.down = false;
+            plataforma.body.allowGravity = false;
+        });
+
+
+
+        let esferas = this.map.createFromObjects('Esferas', {name: "Esfera", key: 'estrellaluz' });
+		
+		this.esfGroup = this.add.group();
+		this.esfGroup.addMultiple(esferas)
+		esferas.forEach(obj => {
+			this.physics.add.existing(obj);
+            obj.body.allowGravity = false;      
+            obj.body.immovable = true;
+		});
+
+        //this.physics.add.collider(this.player, this.esfGroup, this.handlePlayerCollisionCoin, null, this);
+        this.physics.add.overlap(this.player, this.esfGroup, this.handlePlayerCollisionCoin, null, this);
+
+
 
         
 
+        
+  
+        this.altura = 0;
 
-        //this.physics.add.collider(player,platformGroup);
 
         // Nueva función de seguir al jugador
         this.cameras.main.setFollowOffset(100,0);
-        this.cameras.main.startFollow(player,false,0,1);
+        this.cameras.main.startFollow(this.player,false,0,1);
 
 
     
@@ -105,14 +128,39 @@ export default class game extends Phaser.Scene {
 	}
 
     update() {
-        var rotacionIzquierda = false;
-        /*if(this.EscKey.isDown){
-            alert("Se ha pulsado el boton Escape");
 
-        }*/
+        let actualSpeed;
+
+        if (this.player.body.position.x > 660){
+            actualSpeed = -(Math.abs(this.player.body.velocity.x));
+            this.player.body.velocity.x=actualSpeed;
+        }
+
+        if (this.player.body.position.x < -40 ){
+            actualSpeed = Math.abs(this.player.body.velocity.x);
+            this.player.body.velocity.x=actualSpeed;
+        }
+      
        
     }
 
-  
+    handlePlayerOnPlatform(player, platform) {
+
+        this.altura = 0;
+        const playerBottom = player.body.y + player.body.height;
+        const platformTop = platform.body.y;
+
+        if (playerBottom <= platformTop + 5) { // el jugador está encima de la plataforma
+          player.body.velocity.y = -500; // impulsa al jugador hacia arriba
+          this.altura += 500;
+        }
+    }
+    
+    handlePlayerCollisionCoin(player, esfera){
+        this.score += 100;
+        esfera.body.destroy();
+        
+    }
+
     
 }

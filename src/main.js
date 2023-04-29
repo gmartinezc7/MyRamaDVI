@@ -5,6 +5,7 @@ import menuniveles from './menuniveles.js'
 import escenaFinal from './escenaFinal.js'
 import tienda from './tienda.js'
 
+
 const config = {
 	type: Phaser.AUTO,
 	parent: 'phaser-game',

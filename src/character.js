@@ -8,7 +8,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
 	constructor(scene, x, y) {
 		super(scene, x, y, 'character');
 		this.speedy = 400; // Velocidad de movimiento hacia arriba del personaje
-		this.speedx = 250;
+		this.speedx = 190;
 
 		this.scene.add.existing(this); //Añadimos el personaje a la escena
 
@@ -44,12 +44,16 @@ export default class Character extends Phaser.GameObjects.Sprite {
 		
 		// Si pulsado 'S' movemos el personaje en la Y
 		if(this.sKey.isDown){
-			this.body.setVelocityY(this.speedy);
+			this.body.setVelocityY(0.5*this.speedy);
 		}
 
 		// Si pulsamos 'W' movemos el personaje en la Y
 		if(this.wKey.isDown){
 			this.body.setVelocityY(-this.speedy);
 		}
+	}
+
+	salto(){
+		this.body.setVelocityY(-this.speedy);
 	}
 }

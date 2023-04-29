@@ -659,12 +659,12 @@
         {
          "draworder":"topdown",
          "id":3,
-         "name":"Esferas de Luz",
+         "name":"Esferas",
          "objects":[
                 {
                  "height":72,
                  "id":41,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -675,7 +675,7 @@
                 {
                  "height":72,
                  "id":42,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -686,7 +686,7 @@
                 {
                  "height":72,
                  "id":43,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -697,7 +697,7 @@
                 {
                  "height":72,
                  "id":44,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -708,7 +708,7 @@
                 {
                  "height":72,
                  "id":45,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -719,7 +719,7 @@
                 {
                  "height":72,
                  "id":46,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -730,7 +730,7 @@
                 {
                  "height":72,
                  "id":47,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -741,7 +741,7 @@
                 {
                  "height":72,
                  "id":48,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -752,7 +752,7 @@
                 {
                  "height":72,
                  "id":49,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -763,7 +763,7 @@
                 {
                  "height":72,
                  "id":50,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -775,7 +775,7 @@
                 {
                  "height":72,
                  "id":51,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -786,7 +786,7 @@
                 {
                  "height":72,
                  "id":52,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -797,7 +797,7 @@
                 {
                  "height":72,
                  "id":53,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -808,7 +808,7 @@
                 {
                  "height":72,
                  "id":54,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -819,7 +819,7 @@
                 {
                  "height":72,
                  "id":55,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -830,7 +830,7 @@
                 {
                  "height":72,
                  "id":56,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -841,7 +841,7 @@
                 {
                  "height":72,
                  "id":57,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -852,7 +852,7 @@
                 {
                  "height":72,
                  "id":58,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -863,7 +863,7 @@
                 {
                  "height":72,
                  "id":59,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -874,7 +874,7 @@
                 {
                  "height":72,
                  "id":60,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -886,7 +886,7 @@
                 {
                  "height":72,
                  "id":61,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -897,7 +897,7 @@
                 {
                  "height":72,
                  "id":62,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -908,7 +908,7 @@
                 {
                  "height":72,
                  "id":63,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -919,7 +919,7 @@
                 {
                  "height":72,
                  "id":64,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -930,7 +930,7 @@
                 {
                  "height":72,
                  "id":65,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -941,7 +941,7 @@
                 {
                  "height":72,
                  "id":66,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -952,7 +952,7 @@
                 {
                  "height":72,
                  "id":67,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -963,7 +963,7 @@
                 {
                  "height":72,
                  "id":68,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -974,7 +974,7 @@
                 {
                  "height":72,
                  "id":69,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -985,7 +985,7 @@
                 {
                  "height":72,
                  "id":70,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -997,7 +997,7 @@
                 {
                  "height":72,
                  "id":71,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1008,7 +1008,7 @@
                 {
                  "height":72,
                  "id":72,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1019,7 +1019,7 @@
                 {
                  "height":72,
                  "id":73,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1030,7 +1030,7 @@
                 {
                  "height":72,
                  "id":74,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1041,7 +1041,7 @@
                 {
                  "height":72,
                  "id":75,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1052,7 +1052,7 @@
                 {
                  "height":72,
                  "id":76,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1063,7 +1063,7 @@
                 {
                  "height":72,
                  "id":77,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1074,7 +1074,7 @@
                 {
                  "height":72,
                  "id":78,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1085,7 +1085,7 @@
                 {
                  "height":72,
                  "id":79,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1096,7 +1096,7 @@
                 {
                  "height":72,
                  "id":80,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1108,7 +1108,7 @@
                 {
                  "height":72,
                  "id":81,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1119,7 +1119,7 @@
                 {
                  "height":72,
                  "id":82,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1130,7 +1130,7 @@
                 {
                  "height":72,
                  "id":83,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1141,7 +1141,7 @@
                 {
                  "height":72,
                  "id":84,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1152,7 +1152,7 @@
                 {
                  "height":72,
                  "id":85,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1163,7 +1163,7 @@
                 {
                  "height":72,
                  "id":86,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1174,7 +1174,7 @@
                 {
                  "height":72,
                  "id":87,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1185,7 +1185,7 @@
                 {
                  "height":72,
                  "id":88,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1196,7 +1196,7 @@
                 {
                  "height":72,
                  "id":89,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1207,7 +1207,7 @@
                 {
                  "height":72,
                  "id":90,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1219,7 +1219,7 @@
                 {
                  "height":72,
                  "id":91,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1230,7 +1230,7 @@
                 {
                  "height":72,
                  "id":92,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1241,7 +1241,7 @@
                 {
                  "height":72,
                  "id":93,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1252,7 +1252,7 @@
                 {
                  "height":72,
                  "id":94,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1263,7 +1263,7 @@
                 {
                  "height":72,
                  "id":95,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1274,7 +1274,7 @@
                 {
                  "height":72,
                  "id":96,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1285,7 +1285,7 @@
                 {
                  "height":72,
                  "id":97,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1296,7 +1296,7 @@
                 {
                  "height":72,
                  "id":98,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1307,7 +1307,7 @@
                 {
                  "height":72,
                  "id":99,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1318,7 +1318,7 @@
                 {
                  "height":72,
                  "id":100,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1330,7 +1330,7 @@
                 {
                  "height":72,
                  "id":101,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1341,7 +1341,7 @@
                 {
                  "height":72,
                  "id":102,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1352,7 +1352,7 @@
                 {
                  "height":72,
                  "id":103,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1363,7 +1363,7 @@
                 {
                  "height":72,
                  "id":104,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1374,7 +1374,7 @@
                 {
                  "height":72,
                  "id":105,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1385,7 +1385,7 @@
                 {
                  "height":72,
                  "id":106,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1396,7 +1396,7 @@
                 {
                  "height":72,
                  "id":107,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1407,7 +1407,7 @@
                 {
                  "height":72,
                  "id":108,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1418,7 +1418,7 @@
                 {
                  "height":72,
                  "id":109,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1429,7 +1429,7 @@
                 {
                  "height":72,
                  "id":110,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1441,7 +1441,7 @@
                 {
                  "height":72,
                  "id":111,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1452,7 +1452,7 @@
                 {
                  "height":72,
                  "id":112,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1463,7 +1463,7 @@
                 {
                  "height":72,
                  "id":113,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1474,7 +1474,7 @@
                 {
                  "height":72,
                  "id":114,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1485,7 +1485,7 @@
                 {
                  "height":72,
                  "id":115,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1496,7 +1496,7 @@
                 {
                  "height":72,
                  "id":116,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1507,7 +1507,7 @@
                 {
                  "height":72,
                  "id":117,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1518,7 +1518,7 @@
                 {
                  "height":72,
                  "id":118,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1529,7 +1529,7 @@
                 {
                  "height":72,
                  "id":119,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1540,7 +1540,7 @@
                 {
                  "height":72,
                  "id":120,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1552,7 +1552,7 @@
                 {
                  "height":72,
                  "id":121,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1563,7 +1563,7 @@
                 {
                  "height":72,
                  "id":122,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1574,7 +1574,7 @@
                 {
                  "height":72,
                  "id":123,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1585,7 +1585,7 @@
                 {
                  "height":72,
                  "id":124,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1596,7 +1596,7 @@
                 {
                  "height":72,
                  "id":125,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1607,7 +1607,7 @@
                 {
                  "height":72,
                  "id":126,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1618,7 +1618,7 @@
                 {
                  "height":72,
                  "id":127,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1629,7 +1629,7 @@
                 {
                  "height":72,
                  "id":128,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1640,7 +1640,7 @@
                 {
                  "height":72,
                  "id":131,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1651,7 +1651,7 @@
                 {
                  "height":72,
                  "id":132,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1663,7 +1663,7 @@
                 {
                  "height":72,
                  "id":133,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1674,7 +1674,7 @@
                 {
                  "height":72,
                  "id":134,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1685,7 +1685,7 @@
                 {
                  "height":72,
                  "id":135,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1696,7 +1696,7 @@
                 {
                  "height":72,
                  "id":136,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1707,7 +1707,7 @@
                 {
                  "height":72,
                  "id":137,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1718,7 +1718,7 @@
                 {
                  "height":72,
                  "id":138,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1729,7 +1729,7 @@
                 {
                  "height":72,
                  "id":139,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1740,7 +1740,7 @@
                 {
                  "height":72,
                  "id":140,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1751,7 +1751,7 @@
                 {
                  "height":72,
                  "id":141,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1762,7 +1762,7 @@
                 {
                  "height":72,
                  "id":142,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1774,7 +1774,7 @@
                 {
                  "height":72,
                  "id":143,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1785,7 +1785,7 @@
                 {
                  "height":72,
                  "id":145,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1796,7 +1796,7 @@
                 {
                  "height":72,
                  "id":146,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1807,7 +1807,7 @@
                 {
                  "height":72,
                  "id":147,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1818,7 +1818,7 @@
                 {
                  "height":72,
                  "id":148,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1829,7 +1829,7 @@
                 {
                  "height":72,
                  "id":149,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1840,7 +1840,7 @@
                 {
                  "height":72,
                  "id":150,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1851,7 +1851,7 @@
                 {
                  "height":72,
                  "id":151,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1862,7 +1862,7 @@
                 {
                  "height":72,
                  "id":152,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1873,7 +1873,7 @@
                 {
                  "height":72,
                  "id":153,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -1885,7 +1885,7 @@
                 {
                  "height":72,
                  "id":154,
-                 "name":"Esfera de luz",
+                 "name":"Esfera",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -2034,7 +2034,7 @@
                             "visible":true,
                             "width":0,
                             "x":360,
-                            "y":14249.963194700037
+                            "y":14000.963194700037
                      }],
               "opacity":1,
               "type":"objectgroup",
