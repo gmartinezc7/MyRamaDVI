@@ -58,10 +58,14 @@ export default class game extends Phaser.Scene {
         //this.cloudLayer = this.map.createLayer('Capa2', tileset1);
 
         this.wallLayer = this.map.createLayer('Plataformas', tileset1);
+
+        this.esferasLayer = this.map.createLayer('Esferas', tileset1);
         //this.wallLayer.setCollision(2); // Los tiles de esta capa tienen colisiones
 
         //Marcador de puntuación
         this.scoreText = this.add.text(0, 0, 'Score: ' + this.score, {fontFamily: 'Arial', fontSize: '44px', color: '#000000'});
+        this.scoreText.setScrollFactor(0,0);
+        this.scoreText.setDepth(5);
 
         //Se crea el personaje con sus propiedades
         this.mov = this.map.createFromObjects('Objetos', {name: 'player', classType: Character, key:this.selectedCharacter.image});
@@ -104,16 +108,7 @@ export default class game extends Phaser.Scene {
             obj.body.immovable = true;
 		});
 
-        //this.physics.add.collider(this.player, this.esfGroup, this.handlePlayerCollisionCoin, null, this);
-        this.physics.add.overlap(this.player, this.esfGroup, this.handlePlayerCollisionCoin, null, this);
-
-
-
-        
-
-        
-  
-        this.altura = 0;
+        this.physics.add.overlap(this.player, this.esfGroup, this.handlePlayerCollisionEsfera, null, this);
 
 
         // Nueva función de seguir al jugador
@@ -131,6 +126,8 @@ export default class game extends Phaser.Scene {
 
         let actualSpeed;
 
+        // CODIGO PARA LIMITES LATERALES
+
         if (this.player.body.position.x > 660){
             actualSpeed = -(Math.abs(this.player.body.velocity.x));
             this.player.body.velocity.x=actualSpeed;
@@ -140,26 +137,46 @@ export default class game extends Phaser.Scene {
             actualSpeed = Math.abs(this.player.body.velocity.x);
             this.player.body.velocity.x=actualSpeed;
         }
+
+
+        if (this.player.body.position.y > this.alturalimite+300){
+            this.scene.start('escenaFinal',{numero : 0}); 
+
+        }
+        // CONDICION DE FIN DE JUEGO : DERROTA
+        
+        if (this.player.body.position.y < 1400){
+            this.cameras.main.stopFollow();
+        }
+
+        if(this.player.body.position.y > 14000.963194700037){
+            this.cameras.main.stopFollow();
+            this.scene.start('escenaFinal',{numero : 0}); 
+        }
+        if (this.player.body.position.y < 1100){
+            this.scene.start('escenaFinal',{numero : 1}); 
+        }
       
        
     }
 
     handlePlayerOnPlatform(player, platform) {
 
-        this.altura = 0;
+        this.alturalimite = this.player.body.position.y;
+
         const playerBottom = player.body.y + player.body.height;
         const platformTop = platform.body.y;
 
         if (playerBottom <= platformTop + 5) { // el jugador está encima de la plataforma
           player.body.velocity.y = -500; // impulsa al jugador hacia arriba
-          this.altura += 500;
         }
     }
     
-    handlePlayerCollisionCoin(player, esfera){
+    handlePlayerCollisionEsfera(player, esfera){
         this.score += 100;
-        esfera.body.destroy();
-        
+        this.scoreText.setText('Score: ' + this.score);
+        esfera.body.visible = false;
+        esfera.destroy();    
     }
 
     
