@@ -26,12 +26,12 @@ export default class menuniveles extends Phaser.Scene {
 	/**
 	* Creación de los elementos de la escena principal de juego
 	*/
-	create() {
+	create(data) {
 		//Pintamos un fondo
         this.inicio = this.add.image(360, 360 , 'niveles')
 
 		var nivel = {
-			numero: 1
+			numero: 1,
 		};
 
 		this.character = this.registry.get('selectedCharacter');

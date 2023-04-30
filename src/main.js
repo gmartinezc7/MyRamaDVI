@@ -4,6 +4,8 @@ import game from './game.js'
 import menuniveles from './menuniveles.js'
 import escenaFinal from './escenaFinal.js'
 import tienda from './tienda.js'
+import escenaPausada from './escenaPausada.js'
+
 
 
 const config = {
@@ -34,7 +36,7 @@ const config = {
 			gravity: { y: 300 },
 		},
 	},
-	scene: [titulo, tienda, menuniveles, game, escenaFinal],
+	scene: [titulo, tienda, menuniveles, game, escenaPausada, escenaFinal],
 }
 
 export default new Phaser.Game(config);

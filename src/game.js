@@ -16,6 +16,7 @@ export default class game extends Phaser.Scene {
         //this.nivel = nivel;
         //this.nivel= this.scene.settings.data;
 	}
+
     init() {
         if(!this.registry.get('selectedCharacter')){
             this.registry.set('selectedCharacter', {image : 'character'})
@@ -31,6 +32,7 @@ export default class game extends Phaser.Scene {
 
         this.load.tilemapTiledJSON('tilemap', 'assets/Tilemap/mapa_lvl1_v2.json');
         this.load.image('patronesTilemap', 'assets/Tilemap/mapa_continuo_lvl1.png');
+        this.load.image('btnPause', 'assets/Boton pausa.png');
         this.load.image('character', 'assets/Skins/mascleto.png');
         this.load.image('plataformax','assets/plataforma1.png');
         this.load.image('estrellaluz','assets/estrellaluz.png');
@@ -39,7 +41,11 @@ export default class game extends Phaser.Scene {
 	/**
 	* Creación de los elementos de la escena principal de juego
 	*/
-	create() {
+	create(data) {
+        this.botonPlay = data.botonPlay;
+        if(!this.botonPlay){
+            this.espacioPulsado = false;
+        }
         this.score = 0;
         var espacioPulsado = false;
 
@@ -61,6 +67,19 @@ export default class game extends Phaser.Scene {
 
         this.esferasLayer = this.map.createLayer('Esferas', tileset1);
         //this.wallLayer.setCollision(2); // Los tiles de esta capa tienen colisiones
+
+        let quitArea = new Phaser.Geom.Rectangle(55, 60, 230, 220);  
+        this.btnPause = this.add.image(670,50,'btnPause').setInteractive(quitArea, Phaser.Geom.Rectangle.Contains);
+        this.btnPause.setScale(0.4);
+        this.btnPause.setScrollFactor(0,0);
+        this.btnPause.setDepth(5);
+
+        this.btnPause.on('pointerdown', () => {
+            this.scene.pause();
+            this.scene.launch('escenaPausada');
+        });
+
+        this.input.enableDebug(this.btnPause);
 
         //Marcador de puntuación
         this.scoreText = this.add.text(0, 0, 'Score: ' + this.score, {fontFamily: 'Arial', fontSize: '44px', color: '#000000'});
@@ -149,21 +168,19 @@ export default class game extends Phaser.Scene {
             this.cameras.main.stopFollow();
         }
 
-        if(this.player.body.position.y > 14000.963194700037){
+        if(this.player.body.position.y > 16000.963194700037){
             this.cameras.main.stopFollow();
             this.scene.start('escenaFinal',{numero : 0}); 
         }
         if (this.player.body.position.y < 1100){
             this.scene.start('escenaFinal',{numero : 1}); 
         }
-      
-       
     }
 
     handlePlayerOnPlatform(player, platform) {
-
+        //alert(this.botonPlay);
+        
         this.alturalimite = this.player.body.position.y;
-
         const playerBottom = player.body.y + player.body.height;
         const platformTop = platform.body.y;
 
