@@ -13,13 +13,12 @@ export default class menuniveles extends Phaser.Scene {
 	preload(){
         
         this.load.image('niveles', 'assets/fondoniveles720.jpg');
-		this.load.image('skins', 'assets/start2.jpg');
-		this.load.image('nivel1', 'assets/niveles/nivel1.jpg');
-		this.load.image('nivel2', 'assets/niveles/nivel2.jpg');
-		this.load.image('nivel3', 'assets/niveles/nivel3.jpg');
-		this.load.image('nivel4', 'assets/niveles/nivel4.jpg');
-		this.load.image('nivel5', 'assets/niveles/nivel5.jpg');
-		this.load.image('nivel6', 'assets/niveles/nivel6.jpg');
+		this.load.image('skins', 'assets/boton skins.png');
+		this.load.image('nivel1', 'assets/niveles/nivel1.png');
+		this.load.image('nivel2', 'assets/niveles/nivel2.png');
+		this.load.image('nivel3', 'assets/niveles/nivel3.png');
+		this.load.image('nivel4', 'assets/niveles/nivel4.png');
+		this.load.image('nivel5', 'assets/niveles/nivel5.png');
         this.load.image('back', 'assets/botonback.jpg');
 	}
 
@@ -42,40 +41,34 @@ export default class menuniveles extends Phaser.Scene {
 
         //a cada nivel habría que pasarle los datos de ese nivel
 
-        this.level1 = this.add.image(150, 200, 'nivel1').setInteractive();		
+        this.level1 = this.add.image(200, 200, 'nivel1').setInteractive();		
 	    this.level1.on('pointerdown', pointer => {
 			nivel.numero = 1;
-	    	this.scene.start('game', nivel);
+	    	this.scene.start('game', {nivel: nivel.numero});
 	    });
 
 		this.level2 = this.add.image(500, 200, 'nivel2').setInteractive();		
 	    this.level2.on('pointerdown', pointer => {
 	    	nivel.numero = 2;
-	    	this.scene.start('game', nivel);
+	    	this.scene.start('game', {nivel: nivel.numero});
 	    });
 
-        this.level3 = this.add.image(150, 350, 'nivel3').setInteractive();		
+        this.level3 = this.add.image(200, 350, 'nivel3').setInteractive();		
 	    this.level3.on('pointerdown', pointer => {
 	    	nivel.numero = 3;
-	    	this.scene.start('game', nivel);
+	    	this.scene.start('game', {nivel: nivel.numero});
 	    });
 
         this.level4 = this.add.image(500, 350, 'nivel4').setInteractive();		
 	    this.level4.on('pointerdown', pointer => {
 	    	nivel.numero = 4;
-	    	this.scene.start('game', nivel);
+	    	this.scene.start('game', {nivel: nivel.numero});
 	    });
 
-        this.level5 = this.add.image(150, 500, 'nivel5').setInteractive();		
+        this.level5 = this.add.image(350, 500, 'nivel5').setInteractive();		
 	    this.level5.on('pointerdown', pointer => {
 	    	nivel.numero = 5;
-	    	this.scene.start('game', nivel);
-	    });
-
-        this.level6 = this.add.image(500, 500, 'nivel6').setInteractive();		
-	    this.level6.on('pointerdown', pointer => {
-	    	nivel.numero = 6;
-	    	this.scene.start('game', nivel);
+	    	this.scene.start('game', {nivel: nivel.numero});
 	    });
 
         this.buttonBack = this.add.image(600,640,'back').setInteractive();

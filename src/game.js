@@ -4,24 +4,24 @@ import Character from './character.js';
 
 export default class game extends Phaser.Scene {
 
-	constructor(nivel) {
+	constructor() {
 		super({ key:'game'});
         this.fondoJuego = undefined;
         this.valor = 0;
         this.height = 600;
         this.width = 600;
-
-        //this.EscKey = this.scene.input.keyboard.addKey('Esc'); //arriba
-        
-        //this.nivel = nivel;
-        //this.nivel= this.scene.settings.data;
 	}
 
-    init() {
+    init(data) {
         if(!this.registry.get('selectedCharacter')){
             this.registry.set('selectedCharacter', {image : 'character'})
         }
         this.selectedCharacter = this.registry.get('selectedCharacter');
+        this.nivel = data.nivel;
+        this.score = 0;
+        this.totalEsferas = 0;
+        this.totalRecogidas = 0;
+        this.inicioJuego = false;
     }
 
 	/**
@@ -29,13 +29,22 @@ export default class game extends Phaser.Scene {
 	 */
 	preload(){
 
-
-        this.load.tilemapTiledJSON('tilemap', 'assets/Tilemap/mapa_lvl1_v2.json');
-        this.load.image('patronesTilemap', 'assets/Tilemap/mapa_continuo_lvl1.png');
         this.load.image('btnPause', 'assets/Boton pausa.png');
         this.load.image('character', 'assets/Skins/mascleto.png');
-        this.load.image('plataformax','assets/plataforma1.png');
-        this.load.image('estrellaluz','assets/estrellaluz.png');
+
+
+        // A PARTIR DE AQUÍ IF PARA CAMBIAR DEPENDIENDO DEL NIVEL
+
+        // AHACER LO DE LOS STRINGS
+        this.cadena = "mapa_lvl" + this.nivel + ".json";
+        this.cadena2 = "Tile" + this.nivel + ".png";
+
+        this.load.tilemapTiledJSON('tilemap', 'assets/Mapas2/' + this.cadena);
+        this.load.image('patronesTilemap', 'assets/Mapas2/' + this.cadena2);
+        this.load.image('plataformax','assets/Mapas2/plataforma' + this.nivel + '.png');
+        this.load.image('estrellaluz','assets/Mapas2/esfera' + this.nivel + '.png');
+        this.load.image('gotaax','assets/enemigo_agua.png');
+        this.load.image('cenizaax','assets/enemigo_ceniza.png');
 	}
 	
 	/**
@@ -46,28 +55,6 @@ export default class game extends Phaser.Scene {
         if(!this.botonPlay){
             this.espacioPulsado = false;
         }
-        this.score = 0;
-        var espacioPulsado = false;
-
-        this.map = this.make.tilemap({ 
-			key: 'tilemap', 
-			tileWidth: 32, 
-			tileHeight: 32 
-		});
-
-        const tileset1 = this.map.addTilesetImage('mapa_continuo_lvl1', 'patronesTilemap');
-
-        // creamos las diferentes capas a través del tileset. El nombre de la capa debe aparecer en el .json del tilemap cargado
-        this.wallLayer = this.map.createLayer('Plataformas', tileset1);
-		this.groundLayer = this.map.createLayer('Capa1', tileset1);
-
-        //this.cloudLayer = this.map.createLayer('Capa2', tileset1);
-
-        this.wallLayer = this.map.createLayer('Plataformas', tileset1);
-
-        this.esferasLayer = this.map.createLayer('Esferas', tileset1);
-        //this.wallLayer.setCollision(2); // Los tiles de esta capa tienen colisiones
-
         let quitArea = new Phaser.Geom.Rectangle(55, 60, 230, 220);  
         this.btnPause = this.add.image(670,50,'btnPause').setInteractive(quitArea, Phaser.Geom.Rectangle.Contains);
         this.btnPause.setScale(0.4);
@@ -79,7 +66,24 @@ export default class game extends Phaser.Scene {
             this.scene.launch('escenaPausada');
         });
 
-        this.input.enableDebug(this.btnPause);
+        this.map = this.make.tilemap({ 
+			key: 'tilemap', 
+			tileWidth: 32, 
+			tileHeight: 32 
+		});
+
+        const tileset1 = this.map.addTilesetImage('Tile'+ this.nivel, 'patronesTilemap');
+        
+
+        // creamos las diferentes capas a través del tileset. El nombre de la capa debe aparecer en el .json del tilemap cargado
+        this.wallLayer = this.map.createLayer('Plataformas', tileset1);
+        this.groundLayer = this.map.createLayer('Fondo', tileset1);
+        this.skyLayer = this.map.createLayer('Nubes', tileset1);    
+        this.esferasLayer = this.map.createLayer('Esferas', tileset1);
+        //Si el nivel es el 2 se añade una nueva capa
+        if(this.nivel == 2){
+            this.lateralLayer = this.map.createLayer('Laterales', tileset1);
+        }
 
         //Marcador de puntuación
         this.scoreText = this.add.text(0, 0, 'Score: ' + this.score, {fontFamily: 'Arial', fontSize: '44px', color: '#000000'});
@@ -91,6 +95,44 @@ export default class game extends Phaser.Scene {
 		this.player = this.mov[0];
         //this.player.body.position.x;
         this.player.setScale(0.2);
+
+
+        //En todos los niveles menos en el primero se incorpora el enemigo 'Gotas'
+        if(this.nivel > 1){
+            this.gotasLayer = this.map.createLayer('Gotas', tileset1);
+            let gotas = this.map.createFromObjects('Gotas', {name: "Gota", key: 'gotaax' });
+		
+            this.gotasGroup = this.add.group();
+            this.gotasGroup.addMultiple(gotas)
+            gotas.forEach(obj => {
+                this.physics.add.existing(obj);
+                obj.body.allowGravity = false;
+                obj.body.immovable = true;
+                //obj.body.gravity.y = 5;
+            });
+            this.physics.add.collider(this.player, this.gotasGroup, this.handlePlayerOnGotaorCeniza, null, this);
+
+            //El nivel 4 y 5, además incorporan un nuevo enemigo "Ceniza"
+            if(this.nivel >= 4){
+                if(this.nivel == 4){
+                    this.fuegoLayer = this.map.createLayer('Fuegos', tileset1);
+                }
+                this.estelasLayer = this.map.createLayer('Estelas', tileset1);
+                this.estrellasLayer = this.map.createLayer('Estrellas', tileset1);
+                this.cenizasLayer = this.map.createLayer('Cenizas', tileset1);
+                let cenizas = this.map.createFromObjects('Cenizas', {name: "Ceniza", key: 'cenizaax' });
+            
+                this.cenizasGroup = this.add.group();
+                this.cenizasGroup.addMultiple(cenizas)
+                cenizas.forEach(obj => {
+                    this.physics.add.existing(obj);
+                    obj.body.allowGravity = false;
+                    obj.body.immovable = true;
+                    //obj.body.gravity.y = 5;
+                });
+                this.physics.add.collider(this.player, this.cenizasGroup, this.handlePlayerOnGotaorCeniza, null, this);
+            }
+        }
 
         //this.physics.world.enable(this.player);
 
@@ -106,7 +148,6 @@ export default class game extends Phaser.Scene {
 		});
 
         this.physics.add.collider(this.player, this.platGroup, this.handlePlayerOnPlatform, null, this);
-
         this.platGroup.children.iterate(function (plataforma){
             plataforma.body.checkCollision.up = true;
             plataforma.body.checkCollision.left = false;
@@ -114,29 +155,22 @@ export default class game extends Phaser.Scene {
             plataforma.body.checkCollision.down = false;
             plataforma.body.allowGravity = false;
         });
-
-
-
         let esferas = this.map.createFromObjects('Esferas', {name: "Esfera", key: 'estrellaluz' });
-		
 		this.esfGroup = this.add.group();
 		this.esfGroup.addMultiple(esferas)
 		esferas.forEach(obj => {
 			this.physics.add.existing(obj);
             obj.body.allowGravity = false;      
             obj.body.immovable = true;
+            this.totalEsferas++;
 		});
 
         this.physics.add.overlap(this.player, this.esfGroup, this.handlePlayerCollisionEsfera, null, this);
-
 
         // Nueva función de seguir al jugador
         this.cameras.main.setFollowOffset(100,0);
         this.cameras.main.startFollow(this.player,false,0,1);
 
-
-    
-    
         //Permitir obtener que teclas ha pulsado
         this.cursors = this.input.keyboard.createCursorKeys();
 	}
@@ -158,7 +192,7 @@ export default class game extends Phaser.Scene {
         }
 
 
-        if (this.player.body.position.y > this.alturalimite+300){
+        if (this.player.body.position.y > this.alturalimite+300 && this.inicioJuego){
             this.scene.start('escenaFinal',{numero : 0}); 
 
         }
@@ -167,25 +201,31 @@ export default class game extends Phaser.Scene {
         if (this.player.body.position.y < 1400){
             this.cameras.main.stopFollow();
         }
-
-        if(this.player.body.position.y > 16000.963194700037){
-            this.cameras.main.stopFollow();
-            this.scene.start('escenaFinal',{numero : 0}); 
+        if(this.nivel >= 4){
+            if(this.player.body.position.y > 21128){
+                this.cameras.main.stopFollow();
+                this.scene.start('escenaFinal',{numero : 0}); 
+            }
+        }
+        else{
+            if(this.player.body.position.y > 14000){
+                this.cameras.main.stopFollow();
+                this.scene.start('escenaFinal',{numero : 0}); 
+            }
         }
         if (this.player.body.position.y < 1100){
-            this.scene.start('escenaFinal',{numero : 1}); 
+            this.scene.start('escenaFinal',{numero : 1, totalEsferas: this.totalEsferas, totalRecogidas: this.totalRecogidas}); 
         }
     }
 
     handlePlayerOnPlatform(player, platform) {
-        //alert(this.botonPlay);
-        
         this.alturalimite = this.player.body.position.y;
+        this.inicioJuego = true;
         const playerBottom = player.body.y + player.body.height;
         const platformTop = platform.body.y;
 
         if (playerBottom <= platformTop + 5) { // el jugador está encima de la plataforma
-          player.body.velocity.y = -500; // impulsa al jugador hacia arriba
+          player.body.velocity.y = -550; // impulsa al jugador hacia arriba
         }
     }
     
@@ -196,5 +236,7 @@ export default class game extends Phaser.Scene {
         esfera.destroy();    
     }
 
-    
+    handlePlayerOnGotaorCeniza(player, gota) {
+        this.scene.start('escenaFinal',{numero : 0}); 
+    }
 }
