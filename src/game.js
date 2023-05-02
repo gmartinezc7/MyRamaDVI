@@ -243,7 +243,7 @@ export default class game extends Phaser.Scene {
         }
         // CONDICION DE FIN DE JUEGO : DERROTA
         
-        if (this.player.body.position.y < 1400){
+        if (this.player.body.position.y < 1100){
             this.cameras.main.stopFollow();
         }
         if(this.nivel >= 4){
@@ -258,7 +258,7 @@ export default class game extends Phaser.Scene {
                 this.scene.start('escenaFinal',{numero : 0}); 
             }
         }
-        if (this.player.body.position.y < 1100){
+        if (this.player.body.position.y < 800){
             this.scene.start('escenaFinal',{numero : 1, totalEsferas: this.totalEsferas, totalRecogidas: this.totalRecogidas}); 
         }
 

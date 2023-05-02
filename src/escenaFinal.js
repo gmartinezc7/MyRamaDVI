@@ -41,6 +41,7 @@ export default class escenaFinal extends Phaser.Scene {
         this.inicio = this.add.image(360, 360, 'niveles')
 
 		if(this.final == 0){
+			this.sound.stopAll();
 			this.GameOversound=this.sound.add('gameover');
 			this.GameOversound.play();
 			this.texto = this.add.image(360, 360, 'gameOver')
@@ -55,6 +56,7 @@ export default class escenaFinal extends Phaser.Scene {
 			else{
 				this.add.image(360,300, 'victoria1');
 			}
+			this.sound.stopAll();
 			this.Winsound=this.sound.add('winaudio');
 			this.Winsound.play();
 		}

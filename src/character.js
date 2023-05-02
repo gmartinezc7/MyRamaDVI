@@ -20,6 +20,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
 		this.sKey = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
 		this.auxKey = this.scene.input.keyboard.addKey('W');
+		this.cheatKey = this.scene.input.keyboard.addKey('C');
 
 		// Agregamos el personaje a las físicas para que Phaser lo tenga en cuenta
 		scene.physics.add.existing(this);
@@ -57,6 +58,10 @@ export default class Character extends Phaser.GameObjects.Sprite {
 				this.body.setVelocityY(-600);
 			}
 			this.inicio = false;
+		}
+
+		if(this.cheatKey.isDown){
+			this.body.setVelocity(20000);
 		}
 	}
 }
