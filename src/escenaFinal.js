@@ -45,10 +45,11 @@ export default class escenaFinal extends Phaser.Scene {
 			this.GameOversound.play();
 			this.texto = this.add.image(360, 360, 'gameOver')
 		}else{
-			if(this.totalRecogidas / this.totalEsferas >= 0.8){
+
+			if (this.totalRecogidas >= 0.8*this.totalEsferas){
 				this.add.image(360,300, 'victoria3');
 			}
-			else if(this.totalRecogidas / this.totalEsferas >= 0.4){
+			else if(this.totalRecogidas >= 0.4*this.totalEsferas){
 				this.add.image(360,300, 'victoria2');
 			}
 			else{

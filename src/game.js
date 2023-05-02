@@ -280,7 +280,8 @@ export default class game extends Phaser.Scene {
         this.score += 100;
         this.scoreText.setText('Score: ' + this.score);
         esfera.body.visible = false;
-        esfera.destroy();    
+        esfera.destroy();
+        this.totalRecogidas++;   
     }
 
     handlePlayerOnGotaorCeniza(player, gota) {
