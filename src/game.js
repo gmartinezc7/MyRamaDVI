@@ -24,6 +24,7 @@ export default class game extends Phaser.Scene {
         this.totalEsferas = 0;
         this.totalRecogidas = 0;
         this.inicioJuego = false;
+        this.inicioJuego2 = false;
     }
 
 	/**
@@ -211,10 +212,10 @@ export default class game extends Phaser.Scene {
 
         let actualSpeed;
         
-        if (this.inicioJuego == false){
+        if (this.inicioJuego2 == false){
             this.mapHeight = this.player.body.position.y;
         } 
-        this.inicioJuego = true;
+        this.inicioJuego2 = true;
         
 
 

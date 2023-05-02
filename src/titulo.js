@@ -15,8 +15,8 @@ export default class titulo extends Phaser.Scene {
         this.load.image('sky', 'https://labs.phaser.io/assets/skies/space3.png');
 		this.load.image('inicio', 'assets/inicio720.jpg')
 		this.load.image('start', 'assets/start2.jpg');
-		this.load.image('tienda', 'assets/start2.jpg');
 		this.load.image('start', 'assets/mascleto.png');
+		this.load.audio('music', 'assets/music.mp3');
 	}
 
 	/**
@@ -31,7 +31,14 @@ export default class titulo extends Phaser.Scene {
 		this.start = this.add.image(200, 500, 'start').setInteractive();
 		this.start.setScale(0.6);
 
+		const sound = this.sound.add('music', { loop: true, volume: 0.5 });
+		sound.play();
 
+
+		this.input.mouse.disableContextMenu();
+		this.input.on('pointermove', (pointer) => {
+			sound.resume();
+		});
 
 
 		// Escuchamos los eventos del ratón cuando interactual con nuestro sprite de "Start"

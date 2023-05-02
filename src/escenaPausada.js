@@ -15,6 +15,10 @@ export default class escenaPausada extends Phaser.Scene {
         this.load.image('dialogo', 'assets/dialogo menu.png');
     }
 
+    init(data){
+        this.levelMenu = data.nivel;
+    }
+
     create(){
         this.dialog = this.add.image(360,360, 'dialogo');
 
@@ -40,11 +44,6 @@ export default class escenaPausada extends Phaser.Scene {
         this.btnQuit = this.add.image(360,500,'btnQuit').setInteractive(quitArea, Phaser.Geom.Rectangle.Contains);
         this.btnQuit.setScale(0.7);
 
-        this.input.enableDebug(this.btnPlay);
-        this.input.enableDebug(this.btnRestart);
-        this.input.enableDebug(this.btnQuit);
-
-
         this.btnPlay.setScrollFactor(0,0);
         this.btnPlay.setDepth(5);
 
@@ -53,9 +52,6 @@ export default class escenaPausada extends Phaser.Scene {
 
         this.btnQuit.setScrollFactor(0,0);
         this.btnQuit.setDepth(5);
-
-
-        
 
         this.btnPlay.on('pointerdown', () =>{
                 this.botonPlay = true;
@@ -66,7 +62,7 @@ export default class escenaPausada extends Phaser.Scene {
         this.btnRestart.on('pointerdown', () => {
             this.botonPlay = false;
             this.scene.stop('game'); 
-            this.scene.start('game', {botonPlay: this.botonPlay});
+            this.scene.start('game', {botonPlay: this.botonPlay, nivel: this.levelMenu});
             this.scene.stop();
         });
         this.btnQuit.on('pointerdown', () => {
