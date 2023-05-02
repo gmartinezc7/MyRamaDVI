@@ -2,6 +2,8 @@
 import Phaser from 'phaser'
 import Character from './character.js';
 
+
+
 export default class game extends Phaser.Scene {
 
 	constructor() {
@@ -51,6 +53,9 @@ export default class game extends Phaser.Scene {
 	* Creación de los elementos de la escena principal de juego
 	*/
 	create(data) {
+
+        
+
         this.botonPlay = data.botonPlay;
         if(!this.botonPlay){
             this.espacioPulsado = false;
@@ -95,6 +100,9 @@ export default class game extends Phaser.Scene {
 		this.player = this.mov[0];
         //this.player.body.position.x;
         this.player.setScale(0.2);
+
+        
+        
 
 
         //En todos los niveles menos en el primero se incorpora el enemigo 'Gotas'
@@ -173,11 +181,47 @@ export default class game extends Phaser.Scene {
 
         //Permitir obtener que teclas ha pulsado
         this.cursors = this.input.keyboard.createCursorKeys();
+
+
+        
+
+        // CREACIÓN DE LA BARRA DE PROGRESO DE JUEGO
+        //Marcador de puntuación
+        //this.progressBar = this.add.text(0, 650, 'Progreso: ' + this.score, {fontFamily: 'Arial', fontSize: '44px', color: '#ffffff'});
+
+        this.progressBox = this.add.graphics();
+        this.progressBox.lineStyle(2,0xffffff,1);
+        this.progressBox.strokeRect(0,710,720,10);        
+        this.progressBox.setScrollFactor(0,0);
+        this.progressBox.setDepth(6);
+
+
+        this.progressBar = this.add.graphics();
+        this.progressBar.fillStyle(0xFF0000,1);
+        this.progressBar.fillRect(0,710,0,0);
+        this.progressBar.setScrollFactor(0,0);
+        this.progressBar.setDepth(7);
+
+
+        this.progreso = 0;
+
 	}
 
     update() {
 
         let actualSpeed;
+        
+        if (this.inicioJuego == false){
+            this.mapHeight = this.player.body.position.y;
+        } 
+        this.inicioJuego = true;
+        
+
+
+        this.progreso = this.mapHeight - this.player.body.position.y;
+
+        this.updateBarraProgreso();
+
 
         // CODIGO PARA LIMITES LATERALES
 
@@ -216,6 +260,8 @@ export default class game extends Phaser.Scene {
         if (this.player.body.position.y < 1100){
             this.scene.start('escenaFinal',{numero : 1, totalEsferas: this.totalEsferas, totalRecogidas: this.totalRecogidas}); 
         }
+
+
     }
 
     handlePlayerOnPlatform(player, platform) {
@@ -239,4 +285,13 @@ export default class game extends Phaser.Scene {
     handlePlayerOnGotaorCeniza(player, gota) {
         this.scene.start('escenaFinal',{numero : 0}); 
     }
+
+    updateBarraProgreso() {
+        this.progressBar.clear();
+        this.progressBar.fillStyle(0xFF0000,1);
+        this.progressBar.fillRect(0,710,this.progreso/(this.mapHeight/790),10);
+
+    }
+
+
 }
