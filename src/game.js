@@ -3,6 +3,7 @@ import Phaser from 'phaser'
 import Character from './character.js';
 
 
+var cheatActivated = false;
 
 export default class game extends Phaser.Scene {
 
@@ -236,20 +237,22 @@ export default class game extends Phaser.Scene {
             this.player.body.velocity.x=actualSpeed;
         }
 
-
+        
         if (this.player.body.position.y > this.alturalimite+300 && this.inicioJuego){
-            this.scene.start('escenaFinal',{numero : 0}); 
+            
+            this.scene.start('escenaFinal',{numero : 0});
+            //this.resetGame();
 
         }
         // CONDICION DE FIN DE JUEGO : DERROTA
         
-        if (this.player.body.position.y < 1100){
+        if (this.player.body.position.y < 300){
             this.cameras.main.stopFollow();
         }
         if(this.nivel >= 4){
             if(this.player.body.position.y > 21128){
                 this.cameras.main.stopFollow();
-                this.scene.start('escenaFinal',{numero : 0}); 
+                this.scene.start('escenaFinal',{numero : 0});
             }
         }
         else{
@@ -258,7 +261,7 @@ export default class game extends Phaser.Scene {
                 this.scene.start('escenaFinal',{numero : 0}); 
             }
         }
-        if (this.player.body.position.y < 800){
+        if (this.player.body.position.y < 100){
             this.scene.start('escenaFinal',{numero : 1, totalEsferas: this.totalEsferas, totalRecogidas: this.totalRecogidas}); 
         }
 
@@ -272,7 +275,7 @@ export default class game extends Phaser.Scene {
         const platformTop = platform.body.y;
 
         if (playerBottom <= platformTop + 5) { // el jugador está encima de la plataforma
-          player.body.velocity.y = -550; // impulsa al jugador hacia arriba
+          player.body.velocity.y = player.playerGetSpeed(); // impulsa al jugador hacia arriba
         }
     }
     
@@ -285,15 +288,25 @@ export default class game extends Phaser.Scene {
     }
 
     handlePlayerOnGotaorCeniza(player, gota) {
-        this.scene.start('escenaFinal',{numero : 0}); 
+        if (player.playerCheat() == false){
+            this.scene.start('escenaFinal',{numero : 0}); 
+        }
+        
     }
 
     updateBarraProgreso() {
         this.progressBar.clear();
         this.progressBar.fillStyle(0xFF0000,1);
-        this.progressBar.fillRect(0,710,this.progreso/(this.mapHeight/790),10);
+        this.progressBar.fillRect(0,710,this.progreso/(this.mapHeight/740),10);
 
     }
+
+    resetGame(player){
+        player.cheatActivated = false;
+
+    }
+
+    
 
 
 }

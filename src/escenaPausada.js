@@ -61,14 +61,14 @@ export default class escenaPausada extends Phaser.Scene {
 
         this.btnRestart.on('pointerdown', () => {
             this.botonPlay = false;
-            this.scene.stop('game'); 
-            this.scene.start('game', {botonPlay: this.botonPlay, nivel: this.levelMenu});
+            this.scene.stop('game');
+            this.scene.start('game');
             this.scene.stop();
         });
         this.btnQuit.on('pointerdown', () => {
             this.botonPlay = false;
             this.scene.stop('game'); 
-            this.scene.start('menuniveles', {botonPlay: this.botonPlay});
+            this.scene.start('titulo');
             this.scene.stop();
         });
     }

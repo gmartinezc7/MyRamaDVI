@@ -65,13 +65,19 @@ export default class escenaFinal extends Phaser.Scene {
 		this.buttonBack = this.add.image(550,660,'menu').setInteractive();
 		this.buttonBack.setScale(0.7);
         this.buttonBack.on('pointerdown', pointer => {
+			this.scene.stop('escenafinal');
             this.scene.start('menuniveles');
+            this.scene.stop();
+            
 	    });
 
 		this.buttonRestart = this.add.image(320, 660, 'restart').setInteractive();
 		this.buttonRestart.setScale(0.7);
 		this.buttonRestart.on('pointerdown', pointer => {
-            this.scene.start('game', {nivel: this.level})
+			this.scene.stop('escenafinal');
+            this.scene.start('game');
+            this.scene.stop();
+            //this.scene.start('game', {nivel: this.level})
 	    });
 
 

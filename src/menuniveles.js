@@ -43,30 +43,35 @@ export default class menuniveles extends Phaser.Scene {
 
         this.level1 = this.add.image(200, 200, 'nivel1').setInteractive();		
 	    this.level1.on('pointerdown', pointer => {
+			this.scene.stop('game');
 			nivel.numero = 1;
 	    	this.scene.start('game', {nivel: nivel.numero});
 	    });
 
 		this.level2 = this.add.image(500, 200, 'nivel2').setInteractive();		
 	    this.level2.on('pointerdown', pointer => {
+			this.scene.stop('game');
 	    	nivel.numero = 2;
 	    	this.scene.start('game', {nivel: nivel.numero});
 	    });
 
         this.level3 = this.add.image(200, 350, 'nivel3').setInteractive();		
 	    this.level3.on('pointerdown', pointer => {
+			this.scene.stop('game');
 	    	nivel.numero = 3;
 	    	this.scene.start('game', {nivel: nivel.numero});
 	    });
 
         this.level4 = this.add.image(500, 350, 'nivel4').setInteractive();		
 	    this.level4.on('pointerdown', pointer => {
+			this.scene.stop('game');
 	    	nivel.numero = 4;
 	    	this.scene.start('game', {nivel: nivel.numero});
 	    });
 
         this.level5 = this.add.image(350, 500, 'nivel5').setInteractive();		
 	    this.level5.on('pointerdown', pointer => {
+			this.scene.stop('game');
 	    	nivel.numero = 5;
 	    	this.scene.start('game', {nivel: nivel.numero});
 	    });
@@ -76,7 +81,7 @@ export default class menuniveles extends Phaser.Scene {
             this.scene.start('titulo');
 	    });
 
-		this.skins = this.add.image(350,640, 'skins').setInteractive();
+		this.skins = this.add.image(350,660, 'skins').setInteractive();
 		this.skins.setScale(0.6);
 		this.skins.on('pointerdown', pointer => {
 			this.registry.set('level', nivel.numero);

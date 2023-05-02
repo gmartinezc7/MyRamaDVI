@@ -7,9 +7,12 @@ export default class Character extends Phaser.GameObjects.Sprite {
 	 */
 	constructor(scene, x, y) {
 		super(scene, x, y, 'character');
-		this.speedy = 400; // Velocidad de movimiento hacia arriba del personaje
+		this.speedy = -550; // Velocidad de movimiento hacia arriba del personaje
 		this.speedx = 190;
 		this.inicio = true;
+		this.cheatActivated = false;
+		this.laterales = false;
+		this.delay = 0;
 
 		this.scene.add.existing(this); //Añadimos el personaje a la escena
 
@@ -37,14 +40,25 @@ export default class Character extends Phaser.GameObjects.Sprite {
 
 		// Mientras pulsemos la tecla 'A' movemos el personaje en la X
 		if(this.aKey.isDown){
-			this.setFlip(true, false)
-			this.body.setVelocityX(-this.speedx);
+			if (this.delay != 1){
+				this.setFlip(true, false)
+				this.body.setVelocityX(-this.speedx);
+				this.delay = 1;
+			}else{
+				this.delay = 0;	
+			}
+					
 		}
 
 		// Mientras pulsemos la tecla 'D' movemos el personaje en la X
 		if(this.dKey.isDown){
-			this.setFlip(false, false)
-			this.body.setVelocityX(this.speedx);
+			if (this.delay != 1){
+				this.setFlip(false, false)
+				this.body.setVelocityX(this.speedx);
+				this.delay = 1;
+			}else{
+				this.delay = 0;	
+			}
 		}
 
 		if(this.auxKey.isDown){
@@ -61,7 +75,17 @@ export default class Character extends Phaser.GameObjects.Sprite {
 		}
 
 		if(this.cheatKey.isDown){
-			this.body.setVelocity(20000);
+			this.body.setVelocityY(-2000);
+			this.cheatActivated = true;
 		}
 	}
+
+	playerCheat (){
+		return this.cheatActivated;
+	}
+	playerGetSpeed(){
+		return this.speedy;
+	}
+
+	
 }

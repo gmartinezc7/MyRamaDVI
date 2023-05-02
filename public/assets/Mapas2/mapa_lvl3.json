@@ -2352,7 +2352,29 @@
          "visible":true,
          "x":0,
          "y":0
-        }],
+        },
+        {
+              "draworder":"topdown",
+              "id":6,
+              "name":"Objetos",
+              "objects":[
+                     {
+                      "class":"",
+                      "height":0,
+                      "id":7,
+                      "name":"player",
+                      "rotation":0,
+                      "visible":true,
+                      "width":0,
+                      "x":360,
+                      "y":13927
+                     }],
+              "opacity":1,
+              "type":"objectgroup",
+              "visible":true,
+              "x":0,
+              "y":0
+             }],
  "nextlayerid":11,
  "nextobjectid":196,
  "orientation":"orthogonal",
